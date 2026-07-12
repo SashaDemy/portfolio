@@ -31,12 +31,14 @@
 .zoom-overlay img { display: block; max-width: none; width: 1800px; }
 .anketa-wrap { margin-top: 26px; position: relative; max-width: 329px; margin-left: auto; margin-right: auto; }
 .anketa-frame { aspect-ratio: 394/854; }
+.postvisit-carousel { display: none; }
 @media (max-width: 860px) {
   .hero-h1 { font-size: 34px; margin-bottom: 18px; }
   .tldr-lead { font-size: 24px; }
   .sub-block { margin-bottom: 44px; }
   .tldr-short-grid { grid-template-columns: 1fr; gap: 0; }
-  .postvisit-grid { grid-template-columns: 1fr; }
+  .postvisit-grid { display: none; }
+  .postvisit-carousel { display: block; }
   .uf-frame { max-height: 280px; }
   .zoom-overlay img { width: 900px; }
   .gitex-box { flex-direction: column; align-items: flex-start; padding: 26px 22px; }
@@ -259,6 +261,22 @@
         <div><img src="assets/precheck-medical-summary-mobile-poster.gif" alt="Medical history, packages, and exam booking" style="display:block;width:100%;height:auto;"></div>
         <div><img src="assets/precheck-risk-chat.png" alt="Risk forecast" style="display:block;width:100%;height:auto;"></div>
         <div><img src="assets/precheck-chat-history.png" alt="Chat with medical history" style="display:block;width:100%;height:auto;"></div>
+      </div>
+      <div class="anketa-wrap postvisit-carousel" data-carousel>
+        <div class="carousel-frame anketa-frame">
+          <div class="carousel-track" data-carousel-track>
+            <div><img src="assets/precheck-medical-summary-mobile-poster.gif" alt="Medical history, packages, and exam booking"></div>
+            <div><img src="assets/precheck-risk-chat.png" alt="Risk forecast"></div>
+            <div><img src="assets/precheck-chat-history.png" alt="Chat with medical history"></div>
+          </div>
+          <button class="carousel-nav prev" data-carousel-prev aria-label="Previous screen">‹</button>
+          <button class="carousel-nav next" data-carousel-next aria-label="Next screen">›</button>
+        </div>
+        <div class="carousel-foot">
+          <div class="carousel-dots">
+            <button data-carousel-dot class="is-active"></button><button data-carousel-dot></button><button data-carousel-dot></button>
+          </div>
+        </div>
       </div>
     </div>
 
