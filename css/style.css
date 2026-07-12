@@ -90,9 +90,7 @@ header.site-nav.is-fixed { position: fixed; left: 0; right: 0; }
 .nav-mobile-dropdown-panel.is-open { display: flex; }
 .nav-mobile-dropdown-panel a { padding: 6px 12px; font-size: 13px; font-weight: 500; color: rgba(26,24,21,0.7); }
 .nav-mobile-dropdown-panel a.is-current { font-weight: 600; color: #1A1815; }
-.nav-mobile-lang { display: flex; align-items: center; gap: 2px; background: #1A1815; border-radius: 999px; padding: 4px; width: fit-content; margin-top: 4px; }
-.nav-mobile-lang button { cursor: pointer; border: none; background: transparent; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; padding: 7px 14px; border-radius: 999px; color: rgba(243,241,235,0.6); }
-.nav-mobile-lang button.is-active { background: #6B9807; color: #fff; }
+.nav-mobile-panel .nav-cv { align-self: flex-start;}
 
 @media (max-width: 860px) {
   .nav-desktop, .nav-dropdown { display: none; }
