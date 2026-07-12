@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precheck — Sasha Su</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.hero-h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(40px,6.6vw,88px); line-height: 1.0; letter-spacing: -0.015em; max-width: 15ch; text-wrap: balance; margin-bottom: 30px; }
+.lead-serif { font-family: 'Playfair Display', serif; font-size: clamp(24px,2.8vw,34px); line-height: 1.25; margin-bottom: 24px; text-wrap: pretty; }
+.tldr-lead { font-family: 'Playfair Display', serif; font-size: clamp(23px,2.7vw,36px); line-height: 1.28; letter-spacing: -0.005em; max-width: 34ch; text-wrap: pretty; }
+.quote-bar { border-left: 2px solid #1A1815; padding-left: 20px; margin-top: 28px; }
+.quote-bar p { font-family: 'Playfair Display', serif; font-size: clamp(20px,2.2vw,28px); line-height: 1.3; color: #1A1815; text-wrap: pretty; }
+.italic-quote { border-left: 2px solid rgba(26,24,21,0.2); padding-left: 16px; margin-bottom: 22px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; line-height: 1.4; color: rgba(26,24,21,0.6); max-width: 56ch; }
+.sub-block { margin-bottom: 56px; }
+.sub-letter { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: rgba(26,24,21,0.4); }
+.sub-title { font-family: 'Playfair Display', serif; font-size: clamp(24px,2.4vw,30px); line-height: 1.18; margin-bottom: 14px; }
+.sub-body { font-size: 16px; line-height: 1.6; color: rgba(26,24,21,0.72); max-width: 60ch; margin-bottom: 18px; }
+.tldr-short-grid { display: grid; grid-template-columns: 0.5fr 1fr; gap: 48px; align-items: start; }
+.tldr-item { border-top: 1px solid rgba(26,24,21,0.14); padding-top: 18px; }
+.tldr-item .label-sm { margin-bottom: 12px; }
+.tldr-item p { font-family: 'Playfair Display', serif; font-size: clamp(20px,2vw,27px); line-height: 1.3; color: #1A1815; text-wrap: pretty; }
+.gitex-box { border: 1px solid rgba(26,24,21,0.16); border-radius: 8px; padding: clamp(28px,4vw,44px); display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; }
+.postvisit-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 26px; align-items: start; background: #EFEBE1; border-radius: 12px; padding: 24px; }
+.postvisit-grid > div { border-radius: 6px; border: 1px solid rgba(26,24,21,0.14); overflow: hidden; }
+.uf-frame { border-radius: 6px; overflow: hidden; border: 1px solid rgba(26,24,21,0.14); margin-top: 26px; max-height: 340px; display: flex; align-items: flex-start; justify-content: center; background: #F4F2EC; cursor: zoom-in; }
+.zoom-overlay { position: fixed; inset: 0; background: rgba(26,24,21,0.85); z-index: 999; display: flex; align-items: center; justify-content: center; padding: 40px; cursor: zoom-out; overflow: auto; }
+.zoom-overlay img { display: block; max-width: none; width: 1800px; }
+.anketa-wrap { margin-top: 26px; position: relative; max-width: 329px; margin-left: auto; margin-right: auto; }
+.anketa-frame { aspect-ratio: 394/854; }
+@media (max-width: 860px) {
+  .hero-h1 { font-size: 34px; margin-bottom: 18px; }
+  .tldr-lead { font-size: 24px; }
+  .sub-block { margin-bottom: 44px; }
+  .tldr-short-grid { grid-template-columns: 1fr; gap: 0; }
+  .postvisit-grid { grid-template-columns: 1fr; }
+  .uf-frame { max-height: 280px; }
+  .zoom-overlay img { width: 900px; }
+  .gitex-box { flex-direction: column; align-items: flex-start; padding: 26px 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="lang-pill">
+  <button class="js-lang-btn" data-lang="en">EN</button>
+  <button class="js-lang-btn" data-lang="ru">RU</button>
+</div>
+
+<header class="site-nav">
+  <nav class="nav-row nav-row--narrow">
+    <a href="index.html" class="logo" style="font-size:26px;">Sasha Su</a>
+    <div class="nav-desktop">
+      <div class="nav-dropdown" data-dropdown>
+        <button class="nav-dropdown-btn" data-dropdown-btn aria-expanded="false">
+          <span data-i18n="navWork">Work</span>
+          <span class="nav-dropdown-chevron">⌄</span>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="merck.html">Merck</a>
+          <a href="precheck.html" class="is-current">Precheck</a>
+        </div>
+      </div>
+      <a href="life.html" class="nav-link" data-i18n="navLife">Life</a>
+    </div>
+    <a href="assets/CV-EN.pdf" data-cv-link data-href-en="assets/CV-EN.pdf" data-href-ru="assets/CV-RU.pdf" download class="nav-cv" data-i18n="navCV">Download CV</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile-panel">
+    <div data-dropdown>
+      <button class="nav-dropdown-btn" data-dropdown-btn aria-expanded="false"><span data-i18n="navWork">Work</span><span class="nav-dropdown-chevron">⌄</span></button>
+      <div class="nav-mobile-dropdown-panel" data-dropdown-mobile-panel>
+        <a href="merck.html">Merck</a>
+        <a href="precheck.html" class="is-current">Precheck</a>
+      </div>
+    </div>
+    <a href="life.html" class="nav-link" data-i18n="navLife">Life</a>
+    <a href="assets/CV-EN.pdf" data-cv-link data-href-en="assets/CV-EN.pdf" data-href-ru="assets/CV-RU.pdf" download class="nav-cv" data-i18n="navCV">Download CV</a>
+    <div class="nav-mobile-lang"><button class="js-lang-btn" data-lang="en">EN</button><button class="js-lang-btn" data-lang="ru">RU</button></div>
+  </div>
+</header>
+
+<section class="container container--narrow" style="padding:80px 40px 56px;">
+  <div class="eyebrow" style="margin-bottom:28px;" data-i18n="heroTag">Atelic AI · Healthcare · Freelance</div>
+  <h1 class="hero-h1" data-i18n="heroH1">Precheck — the visit begins before the visit.</h1>
+  <p style="font-size:clamp(17px,1.6vw,21px);line-height:1.55;max-width:62ch;color:rgba(26,24,21,0.75);" data-i18n="heroP">Precheck is a healthcare venture inside Atelic AI, built on a simple bet: AI agents can make a doctor's visit calmer and more attentive.</p>
+  <div class="meta-grid">
+    <div><div class="label-sm" data-i18n="heroRoleLabel">Role</div><div data-i18n="heroRoleValue">Sole UX researcher and product designer<br><span style="color:rgba(26,24,21,0.6);">Research · Flow · UI · Prototype</span></div></div>
+    <div><div class="label-sm" data-i18n="heroTeamLabel">Team</div><div data-i18n="heroTeamValue">Founder · CMO · LLM engineer · Frontend developer</div></div>
+    <div><div class="label-sm" data-i18n="heroTimelineLabel">Timeline</div><div data-i18n="heroTimelineValue">Aug – Nov 2025</div></div>
+    <div><div class="label-sm" data-i18n="heroRecognitionLabel">Recognition</div><div data-i18n="heroRecognitionValue">Presented at GITEX Global 2025 · Dubai, UAE</div></div>
+  </div>
+</section>
+
+<section class="container container--narrow" style="padding:0 40px 8px;" data-tabs>
+  <div class="toggle-row">
+    <button data-tab-btn="tldr" data-i18n="toggleTldr">TL;DR</button>
+    <button data-tab-btn="full" class="is-active" data-i18n="toggleFull">Full case study</button>
+  </div>
+</section>
+
+<!-- TL;DR -->
+<section class="container container--narrow" style="padding:40px 40px 72px;" data-tab-panel="tldr" hidden>
+  <div style="border-top:1px solid rgba(26,24,21,0.14);padding-top:18px;margin-bottom:56px;">
+    <div class="label-sm" style="margin-bottom:18px;" data-i18n="tldrLabel">TL;DR</div>
+    <p class="tldr-lead" data-i18n="tldrLead">We originally planned to build a copilot for doctors.</p>
+    <div style="max-width:62ch;margin-top:28px;">
+      <p style="font-size:17px;line-height:1.6;color:rgba(26,24,21,0.74);" data-i18n="tldrBody">That's how <strong style="font-weight:600;color:#1A1815;">Precheck</strong> was born.</p>
+    </div>
+  </div>
+  <div class="tldr-short-grid">
+    <div class="eyebrow" data-i18n="tldrShortLabel">In short</div>
+    <div style="display:flex;flex-direction:column;gap:26px;">
+      <div class="tldr-item"><div class="label-sm" data-i18n="tldrProblemLabel">Problem</div><p data-i18n="tldrProblemBody">…</p></div>
+      <div class="tldr-item"><div class="label-sm" data-i18n="tldrDidLabel">What I did</div><p data-i18n="tldrDidBody">…</p></div>
+      <div class="tldr-item"><div class="label-sm" data-i18n="tldrResultLabel">Result</div><p data-i18n="tldrResultBody">…</p></div>
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.06em;color:rgba(26,24,21,0.45);padding-top:4px;" data-i18n="tldrRoleLine">Role line</div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL CASE -->
+<div data-tab-panel="full">
+
+<section class="container container--narrow" style="padding:0 40px 16px;">
+  <div style="border-radius:6px;background:#EFEBE1;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <img src="assets/precheck-key-visual.png" alt="Precheck screen on a phone" style="width:100%;height:auto;max-height:640px;object-fit:contain;display:block;">
+  </div>
+  <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.06em;color:rgba(26,24,21,0.5);margin-top:14px;" data-i18n="keyVisualCaption">From a gap in the history to a booked appointment — in one Precheck screen</div>
+</section>
+
+<section class="container container--narrow" style="padding:80px 40px 0;">
+  <div class="two-col">
+    <div class="eyebrow" data-i18n="s01Label">01 — Context</div>
+    <div>
+      <p class="lead-serif" data-i18n="s01P1">…</p>
+      <p class="body-copy" data-i18n="s01P2">…</p>
+      <p class="body-copy" data-i18n="s01P3">…</p>
+    </div>
+  </div>
+</section>
+
+<section class="container container--narrow" style="padding:80px 40px 0;">
+  <div class="two-col">
+    <div class="eyebrow" data-i18n="s02Label">02 — The problem</div>
+    <div>
+      <p class="lead-serif" data-i18n="s02P1">…</p>
+      <p class="body-copy" data-i18n="s02P2">…</p>
+      <p class="body-copy" data-i18n="s02P3">…</p>
+      <p class="body-copy" data-i18n="s02P4">…</p>
+      <div class="quote-bar"><p data-i18n="s02Quote">…</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="container container--narrow" style="padding:80px 40px 0;">
+  <div class="two-col">
+    <div class="eyebrow" data-i18n="s03Label">03 — Constraints</div>
+    <div>
+      <p class="lead-serif" data-i18n="s03P1">…</p>
+      <p class="body-copy" data-i18n="s03P2">…</p>
+      <p class="body-copy" data-i18n="s03P3">…</p>
+    </div>
+  </div>
+</section>
+
+<section class="container container--narrow" style="padding:80px 40px 0;">
+  <div class="two-col">
+    <div class="eyebrow" data-i18n="s04Label">04 — Research</div>
+    <div>
+      <p class="lead-serif" data-i18n="s04P1">…</p>
+      <p class="body-copy" data-i18n="s04P2">…</p>
+      <button class="barriers-toggle" data-barriers-btn="#barriers-list">
+        <span class="circle">+</span>
+        <span data-i18n="s04BarriersToggle">A few barriers that shaped key design decisions</span>
+      </button>
+      <ul class="barriers-list" id="barriers-list" data-i18n="s04Barriers">…</ul>
+      <div class="italic-quote" data-i18n="s04Quote">…</div>
+      <p class="body-copy" data-i18n="s04P3">…</p>
+    </div>
+  </div>
+</section>
+
+<section class="container container--narrow" style="padding:80px 40px 0;">
+  <div class="two-col">
+    <div class="eyebrow" data-i18n="s05Label">05 — The solution</div>
+    <div><p class="lead-serif" data-i18n="s05Lead">…</p><p class="body-copy" style="margin-top:20px;" data-i18n="s05P2">…</p></div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:56px;margin-top:56px;">
+    <div class="sub-block">
+      <div class="two-col">
+        <div class="sub-letter">A</div>
+        <div>
+          <h3 class="sub-title" data-i18n="s05aTitle">For the patient: the Precheck questionnaire</h3>
+          <p class="sub-body" data-i18n="s05aP1">…</p>
+          <p class="sub-body" data-i18n="s05aP2Intro">…</p>
+          <ul style="list-style:none;margin:0 0 18px;padding:0;display:flex;flex-direction:column;gap:12px;max-width:60ch;">
+            <li style="font-size:16px;line-height:1.55;color:rgba(26,24,21,0.72);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:rgba(26,24,21,0.4);">—</span><span data-i18n="s05aLi1">…</span></li>
+            <li style="font-size:16px;line-height:1.55;color:rgba(26,24,21,0.72);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:rgba(26,24,21,0.4);">—</span><span data-i18n="s05aLi2">…</span></li>
+          </ul>
+          <p class="sub-body" data-i18n="s05aP3">…</p>
+        </div>
+      </div>
+      <div class="anketa-wrap">
+        <div class="carousel-frame anketa-frame" data-carousel data-captions='["Questionnaire — visit questions","Completion screen — the doctor is ready","Questionnaire — structured answers","Data protection and attached documents","Recorded voice message"]'>
+          <div data-carousel-track>
+            <div><img src="assets/precheck-questionnaire-empty-poster.png" alt="Questionnaire"></div>
+            <div><img src="assets/precheck-questionnaire-answered-poster.png" alt="Questionnaire answered"></div>
+            <div><img src="assets/precheck-documents-upload-poster.png" alt="Documents upload"></div>
+            <div><img src="assets/precheck-voice-message-poster.png" alt="Voice message"></div>
+            <div><img src="assets/precheck-all-done-poster.png" alt="All done"></div>
+          </div>
+          <button class="carousel-nav prev" data-carousel-prev aria-label="Previous screen">‹</button>
+          <button class="carousel-nav next" data-carousel-next aria-label="Next screen">›</button>
+        </div>
+        <div class="carousel-foot">
+          <span class="carousel-caption" data-carousel-caption></span>
+          <div class="carousel-dots">
+            <button data-carousel-dot class="is-active"></button><button data-carousel-dot></button><button data-carousel-dot></button><button data-carousel-dot></button><button data-carousel-dot></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="two-col">
+        <div class="sub-letter">B</div>
+        <div>
+          <h3 class="sub-title" data-i18n="s05bTitle">Report for the administrator and doctor</h3>
+          <p class="sub-body" data-i18n="s05bP1">…</p>
+          <p class="sub-body" style="margin-bottom:0;" data-i18n="s05bP2">…</p>
+        </div>
+      </div>
+      <div style="margin-top:26px;">
+        <div style="border-radius:6px;border:1px solid rgba(26,24,21,0.14);overflow:hidden;">
+          <img src="assets/precheck-report-full.png" alt="Sample Precheck report for a doctor" style="display:block;width:100%;height:auto;">
+        </div>
+        <a href="#post-visit-ai" style="display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(26,24,21,0.5);" data-i18n="s05bSkip">Skip the report ↓</a>
+      </div>
+    </div>
+
+    <div class="sub-block" id="post-visit-ai">
+      <div class="two-col">
+        <div class="sub-letter">C</div>
+        <div>
+          <h3 class="sub-title" data-i18n="s05cTitle">Post-visit AI features and monetization points</h3>
+          <p class="sub-body" style="margin-bottom:0;" data-i18n="s05cP1">…</p>
+        </div>
+      </div>
+      <div class="postvisit-grid">
+        <div><img src="assets/precheck-medical-summary-mobile-poster.png" alt="Medical history, packages, and exam booking" style="display:block;width:100%;height:auto;"></div>
+        <div><img src="assets/precheck-risk-chat.png" alt="Risk forecast" style="display:block;width:100%;height:auto;"></div>
+        <div><img src="assets/precheck-chat-history.png" alt="Chat with medical history" style="display:block;width:100%;height:auto;"></div>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="two-col">
+        <div class="sub-letter">D</div>
+        <div>
+          <h3 class="sub-title" data-i18n="s05dTitle">End-to-end flow</h3>
+          <p class="sub-body" style="margin-bottom:0;" data-i18n="s05dP1">…</p>
+        </div>
+      </div>
+      <div class="uf-frame" data-zoom="#uf-zoom">
+        <img src="assets/precheck-user-flow.png" alt="Precheck user flow: patient, AI, doctor" style="display:block;width:100%;height:auto;">
+      </div>
+      <div style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(26,24,21,0.4);margin-top:8px;" data-i18n="s05dZoomHint">Click the diagram to zoom in</div>
+    </div>
+  </div>
+</section>
+
+<section class="container container--narrow" style="padding:80px 40px 0;">
+  <div class="two-col">
+    <div class="eyebrow" data-i18n="s06Label">06 — Design decisions</div>
+    <div><p class="lead-serif" data-i18n="s06Lead">…</p></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:56px;margin-top:56px;">
+    <div class="sub-block"><div class="two-col"><div class="sub-letter">01</div><div><h3 class="sub-title" data-i18n="dec1Title">…</h3><p class="sub-body" data-i18n="dec1P1">…</p><p class="sub-body" style="margin-bottom:0;" data-i18n="dec1P2">…</p></div></div></div>
+    <div class="sub-block"><div class="two-col"><div class="sub-letter">02</div><div><h3 class="sub-title" data-i18n="dec2Title">…</h3><p class="sub-body" data-i18n="dec2P1">…</p><p class="sub-body" style="margin-bottom:0;" data-i18n="dec2P2">…</p></div></div></div>
+    <div class="sub-block"><div class="two-col"><div class="sub-letter">03</div><div><h3 class="sub-title" data-i18n="dec3Title">…</h3><p class="sub-body" style="margin-bottom:0;" data-i18n="dec3P1">…</p></div></div></div>
+    <div class="sub-block"><div class="two-col"><div class="sub-letter">04</div><div><h3 class="sub-title" data-i18n="dec4Title">…</h3><p class="sub-body" data-i18n="dec4P1">…</p><p class="sub-body" style="margin-bottom:0;" data-i18n="dec4P2">…</p></div></div></div>
+  </div>
+</section>
+
+<section class="container container--narrow" style="padding:80px 40px 0;">
+  <div class="two-col">
+    <div class="eyebrow" data-i18n="s07Label">07 — Outcome</div>
+    <div>
+      <p class="lead-serif" data-i18n="s07P1">…</p>
+      <p class="body-copy" data-i18n="s07P2">…</p>
+      <p class="body-copy" style="margin-bottom:0;" data-i18n="s07P3">…</p>
+    </div>
+  </div>
+</section>
+
+<section class="container container--narrow" style="padding:56px 40px 0;">
+  <div class="gitex-box">
+    <div style="flex:1 1 320px;">
+      <div class="label-sm" style="margin-bottom:12px;" data-i18n="gitexPresented">Presented at</div>
+      <div class="serif" style="font-size:clamp(26px,3vw,38px);line-height:1.15;" data-i18n="gitexTitle">GITEX Global 2025 · Dubai, UAE</div>
+    </div>
+    <p style="flex:1 1 320px;font-size:16px;line-height:1.6;color:rgba(26,24,21,0.7);" data-i18n="gitexBody">…</p>
+  </div>
+</section>
+
+<section class="container container--narrow" style="padding:80px 40px 0;">
+  <div class="two-col">
+    <div class="eyebrow" data-i18n="reflectionLabel">Reflection</div>
+    <div>
+      <p class="lead-serif" data-i18n="reflectionP1">…</p>
+      <p class="body-copy" data-i18n="reflectionP2">…</p>
+      <p class="body-copy" style="margin-bottom:0;" data-i18n="reflectionP3">…</p>
+    </div>
+  </div>
+</section>
+
+</div><!-- /full -->
+
+<div class="zoom-overlay" id="uf-zoom" hidden>
+  <img src="assets/precheck-user-flow.png" alt="Precheck user flow: patient, AI, doctor">
+</div>
+
+<div class="next-banner">
+  <a href="merck.html">
+    <div>
+      <div class="label-sm" data-i18n="nextLabel">Next project</div>
+      <div class="next-title serif" data-i18n="nextTitle">Merck — oncology companion</div>
+    </div>
+    <span class="next-arrow">→</span>
+  </a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-row footer-row--narrow">
+    <div class="footer-col"><div class="label-sm" data-i18n="footPortfolio">Portfolio by</div><a href="index.html" style="color:#1A1815;">Sasha Su · Product Designer</a></div>
+    <div class="footer-col" style="flex:1 1 220px;">
+      <div class="label-sm" data-i18n="footElsewhere">Contact</div>
+      <div class="footer-links">
+        <a href="https://t.me/be_anicehuman" target="_blank">Telegram</a>
+        <a href="https://www.linkedin.com/in/beanicehuman" target="_blank">LinkedIn</a>
+        <a href="mailto:ademykina@gmail.com">ademykina@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-year">© <span id="year"></span></div>
+  </div>
+</footer>
+
+<script src="js/i18n-precheck.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

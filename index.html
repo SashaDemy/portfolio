@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sasha Su — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="lang-pill">
+  <button class="js-lang-btn" data-lang="en">EN</button>
+  <button class="js-lang-btn" data-lang="ru">RU</button>
+</div>
+
+<header class="site-nav is-fixed">
+  <nav class="nav-row">
+    <a href="index.html" class="logo">Sasha Su</a>
+
+    <div class="nav-desktop">
+      <div class="nav-dropdown" data-dropdown>
+        <button class="nav-dropdown-btn" data-dropdown-btn aria-expanded="false">
+          <span data-i18n="work">Work</span>
+          <span class="nav-dropdown-chevron">⌄</span>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="merck.html">Merck</a>
+          <a href="precheck.html">Precheck</a>
+        </div>
+      </div>
+      <a href="life.html" class="nav-link" data-i18n="life">Life</a>
+    </div>
+
+    <a href="assets/CV-EN.pdf" data-cv-link data-href-en="assets/CV-EN.pdf" data-href-ru="assets/CV-RU.pdf" download class="nav-cv" data-i18n="cv">Download CV</a>
+
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile-panel">
+    <div data-dropdown>
+      <button class="nav-dropdown-btn" data-dropdown-btn aria-expanded="false">
+        <span data-i18n="work">Work</span>
+        <span class="nav-dropdown-chevron">⌄</span>
+      </button>
+      <div class="nav-mobile-dropdown-panel" data-dropdown-mobile-panel>
+        <a href="merck.html">Merck</a>
+        <a href="precheck.html">Precheck</a>
+      </div>
+    </div>
+    <a href="life.html" class="nav-link" data-i18n="life">Life</a>
+    <a href="assets/CV-EN.pdf" data-cv-link data-href-en="assets/CV-EN.pdf" data-href-ru="assets/CV-RU.pdf" download class="nav-cv" data-i18n="cv">Download CV</a>
+    <div class="nav-mobile-lang">
+      <button class="js-lang-btn" data-lang="en">EN</button>
+      <button class="js-lang-btn" data-lang="ru">RU</button>
+    </div>
+  </div>
+</header>
+<div style="height:69px;"></div>
+
+<section class="container" style="padding:72px 40px 24px;">
+  <h1 class="serif" style="font-weight:400;font-size:clamp(42px,6vw,88px);line-height:1.06;letter-spacing:-0.02em;text-wrap:pretty;" data-i18n="h1full">I'm product designer focused on Healthcare and MedTech,<br>BHSAD graduated</h1>
+</section>
+
+<section class="container" style="padding:40px 40px 88px;">
+  <div class="lede-grid">
+    <div>
+      <div class="eyebrow" style="margin-bottom:28px;" data-i18n="currentlyLabel">Currently</div>
+      <p style="font-size:16px;line-height:1.6;color:rgba(26,24,21,0.7);max-width:34ch;" data-i18n="currentlyPara">Focused on healthcare and high-stakes tools — clinical software that respects the weight of the work and the people doing it.</p>
+      <a href="mailto:ademykina@gmail.com" style="margin-top:26px;font-size:16px;font-weight:600;display:inline-flex;align-items:center;gap:10px;color:#1A1815;border-bottom:1.5px solid #1A1815;padding-bottom:3px;">ademykina@gmail.com <span>→</span></a>
+    </div>
+    <div class="skills-grid">
+      <div>
+        <div class="label-sm" style="margin-bottom:8px;" data-i18n="skillsLabel">Skills</div>
+        <div style="font-size:16px;line-height:1.5;" data-i18n="skillsMain">UX Research · IA · Interaction Design<br><span style="color:rgba(26,24,21,0.6);">Regulatory-aware · Accessibility · Design Systems</span></div>
+      </div>
+      <div>
+        <div class="label-sm" style="margin-bottom:8px;" data-i18n="locLabel">Location</div>
+        <div style="font-size:16px;line-height:1.5;" data-i18n="locValue">Moscow, Russia</div>
+      </div>
+      <div>
+        <div class="label-sm" style="margin-bottom:8px;" data-i18n="availLabel">Availability</div>
+        <div style="font-size:16px;line-height:1.5;" data-i18n="availValue">Open to new work</div>
+      </div>
+      <div>
+        <div class="label-sm" style="margin-bottom:8px;" data-i18n="langLabel">Languages</div>
+        <div style="font-size:16px;line-height:1.5;" data-i18n="langValue">RU · EN · KR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="border-top:1px solid rgba(26,24,21,0.16);">
+  <div class="container" style="max-width:1740px;padding:64px 40px 96px;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:48px;">
+      <h2 class="serif" style="font-weight:400;font-size:clamp(28px,3.4vw,44px);letter-spacing:-0.01em;" data-i18n="workHeading">Selected case studies</h2>
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(26,24,21,0.5);">02 <span data-i18n="projectsWord">projects</span></span>
+    </div>
+
+    <div>
+      <!-- PROJECT: Precheck -->
+      <article class="proj-article" style="border-top:none;">
+        <div style="display:flex;flex-direction:column;">
+          <div style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(26,24,21,0.4);margin-bottom:28px;">W1 — <span data-i18n="p-atelic-kind">B2B · Freelance</span></div>
+          <a href="precheck.html" style="display:inline-block;">
+            <h3 class="serif" style="font-weight:400;font-size:clamp(36px,4.4vw,64px);line-height:1.0;letter-spacing:-0.01em;margin-bottom:24px;">Precheck — Medical Copilot</h3>
+          </a>
+          <p style="font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.55;color:rgba(26,24,21,0.7);max-width:42ch;text-wrap:pretty;" data-i18n="p-atelic-desc">A calm pre-visit intake that collects patient history before the appointment, so the doctor arrives already informed.</p>
+          <div style="margin-top:40px;">
+            <div class="accordion-row">
+              <button class="accordion-btn" data-accordion-btn><span data-i18n="roleLabel">Role</span><span data-accordion-sign>+</span></button>
+              <div class="accordion-content" data-accordion-content data-i18n="p-atelic-role">UX Researcher · Product Designer</div>
+            </div>
+            <div class="accordion-row">
+              <button class="accordion-btn" data-accordion-btn><span data-i18n="contribLabel">Contributions</span><span data-accordion-sign>+</span></button>
+              <div class="accordion-content" data-accordion-content data-i18n="p-atelic-contrib">Research · UI · IA · Flow design</div>
+            </div>
+            <div class="accordion-row" style="margin-bottom:0;">
+              <button class="accordion-btn" data-accordion-btn><span data-i18n="timelineLabel">Timeline</span><span data-accordion-sign>+</span></button>
+              <div class="accordion-content" data-accordion-content data-i18n="p-atelic-timeline">Aug 2025 – Nov 2025</div>
+            </div>
+          </div>
+          <a href="precheck.html" style="margin-top:36px;align-self:flex-start;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;display:inline-flex;align-items:center;gap:10px;color:#1A1815;border-bottom:1.5px solid #1A1815;padding-bottom:3px;"><span data-i18n="previewCta">Preview case study</span> <span>→</span></a>
+        </div>
+        <div class="proj-shot-frame" data-fade-carousel>
+          <img data-fade-slide class="is-active" src="assets/atelic-precheck.png" alt="Precheck screen">
+          <img data-fade-slide src="assets/precheck-risk-chat.png" alt="Precheck screen">
+          <img data-fade-slide src="assets/precheck-chat-history.png" alt="Precheck screen">
+          <div class="proj-dots">
+            <span data-fade-dot class="is-active"></span><span data-fade-dot></span><span data-fade-dot></span>
+          </div>
+          <button class="proj-nav prev" data-fade-prev hidden aria-label="Previous screen">←</button>
+          <button class="proj-nav next" data-fade-next aria-label="Next screen">→</button>
+        </div>
+      </article>
+
+      <!-- PROJECT: Merck -->
+      <article class="proj-article" style="border-top:1px solid rgba(26,24,21,0.14);">
+        <div style="display:flex;flex-direction:column;">
+          <div style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(26,24,21,0.4);margin-bottom:28px;">W2 — <span data-i18n="p-merck-kind">Case study · B2C</span></div>
+          <a href="merck.html" style="display:inline-block;">
+            <h3 class="serif" style="font-weight:400;font-size:clamp(36px,4.4vw,64px);line-height:1.0;letter-spacing:-0.01em;margin-bottom:24px;">Merck Oncology</h3>
+          </a>
+          <p style="font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.55;color:rgba(26,24,21,0.7);max-width:42ch;text-wrap:pretty;" data-i18n="p-merck-desc">A companion for oncologists at work — clinical tools, a knowledge hub, and room for the emotional weight of the job.</p>
+          <div style="margin-top:40px;">
+            <div class="accordion-row">
+              <button class="accordion-btn" data-accordion-btn><span data-i18n="roleLabel">Role</span><span data-accordion-sign>+</span></button>
+              <div class="accordion-content" data-accordion-content data-i18n="p-merck-role">Project Manager · UX Researcher · Product Designer</div>
+            </div>
+            <div class="accordion-row">
+              <button class="accordion-btn" data-accordion-btn><span data-i18n="contribLabel">Contributions</span><span data-accordion-sign>+</span></button>
+              <div class="accordion-content" data-accordion-content data-i18n="p-merck-contrib">Research · UI design · prototyping</div>
+            </div>
+            <div class="accordion-row" style="margin-bottom:0;">
+              <button class="accordion-btn" data-accordion-btn><span data-i18n="timelineLabel">Timeline</span><span data-accordion-sign>+</span></button>
+              <div class="accordion-content" data-accordion-content data-i18n="p-merck-timeline">Apr 2025 – Jul 2025</div>
+            </div>
+          </div>
+          <a href="merck.html" style="margin-top:36px;align-self:flex-start;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;display:inline-flex;align-items:center;gap:10px;color:#1A1815;border-bottom:1.5px solid #1A1815;padding-bottom:3px;"><span data-i18n="previewCta">Preview case study</span> <span>→</span></a>
+        </div>
+        <div class="proj-shot-frame" data-fade-carousel>
+          <img data-fade-slide class="is-active" src="assets/Mockup-de1a8273.png" alt="Merck screen">
+          <img data-fade-slide src="assets/note-2.png" alt="Merck screen">
+          <img data-fade-slide src="assets/note-4.png" alt="Merck screen">
+          <img data-fade-slide src="assets/note-6.png" alt="Merck screen">
+          <img data-fade-slide src="assets/case-of-the-day.png" alt="Merck screen">
+          <div class="proj-dots">
+            <span data-fade-dot class="is-active"></span><span data-fade-dot></span><span data-fade-dot></span><span data-fade-dot></span><span data-fade-dot></span>
+          </div>
+          <button class="proj-nav prev" data-fade-prev hidden aria-label="Previous screen">←</button>
+          <button class="proj-nav next" data-fade-next aria-label="Next screen">→</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div class="footer-col">
+      <div class="label-sm" data-i18n="footPortfolio">Portfolio by</div>
+      <a href="index.html" style="color:#1A1815;">Sasha Su · Product Designer</a>
+    </div>
+    <div class="footer-col" style="flex:1 1 220px;">
+      <div class="label-sm" data-i18n="footElsewhere">Contact</div>
+      <div class="footer-links">
+        <a href="https://t.me/be_anicehuman" target="_blank">Telegram</a>
+        <a href="https://www.linkedin.com/in/beanicehuman" target="_blank">LinkedIn</a>
+        <a href="mailto:ademykina@gmail.com">ademykina@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-year">© <span id="year"></span></div>
+  </div>
+</footer>
+
+<script>
+window.I18N = {
+  en: {
+    work: 'Work', life: 'Life', cv: 'Download CV',
+    h1full: "I&#39;m product designer focused on Healthcare and MedTech,<br>BHSAD graduated",
+    currentlyLabel: 'Currently',
+    currentlyPara: 'Focused on healthcare and high-stakes tools — clinical software that respects the weight of the work and the people doing it.',
+    langLabel: 'Languages', langValue: 'RU · EN · KR',
+    skillsLabel: 'Skills', skillsMain: 'UX Research · IA · Interaction Design<br><span style="color:rgba(26,24,21,0.6);">Regulatory-aware · Accessibility · Design Systems</span>',
+    locLabel: 'Location', locValue: 'Moscow, Russia',
+    availLabel: 'Availability', availValue: 'Open to new work',
+    workHeading: 'Selected case studies', projectsWord: 'projects',
+    roleLabel: 'Role', contribLabel: 'Contributions', timelineLabel: 'Timeline', previewCta: 'Preview case study',
+    footPortfolio: 'Portfolio by', footElsewhere: 'Contact',
+    'p-atelic-kind': 'B2B · Freelance', 'p-atelic-role': 'UX Researcher · Product Designer',
+    'p-atelic-contrib': 'Research · UI · IA · Flow design', 'p-atelic-timeline': 'Aug 2025 – Nov 2025',
+    'p-atelic-desc': 'A calm pre-visit intake that collects patient history before the appointment, so the doctor arrives already informed.',
+    'p-merck-kind': 'Case study · B2C', 'p-merck-role': 'Project Manager · UX Researcher · Product Designer',
+    'p-merck-contrib': 'Research · UI design · prototyping', 'p-merck-timeline': 'Apr 2025 – Jul 2025',
+    'p-merck-desc': 'A companion for oncologists at work — clinical tools, a knowledge hub, and room for the emotional weight of the job.'
+  },
+  ru: {
+    work: 'Работа', life: 'Жизнь', cv: 'Скачать резюме',
+    h1full: 'Привет, я продуктовый дизайнер, фокусируюсь на сферах здравоохранения<br>и MedTech, выпускница БВШД',
+    currentlyLabel: 'в настоящий момент',
+    currentlyPara: 'Проектирую продукты для здравоохранения и критически важных инструментов — с уважением к ответственности этой сферы и труду людей, которые в ней работают.',
+    langLabel: 'Языки', langValue: 'Русский, Английский, Корейский',
+    skillsLabel: 'Навыки', skillsMain: 'UX-исследования · ИА · Проектирование взаимодействия<br><span style="color:rgba(26,24,21,0.6);">с учётом нормативных требований · Дизайн-системы</span>',
+    locLabel: 'Локация', locValue: 'Москва, Россия',
+    availLabel: 'Занятость', availValue: 'Открыта к новым проектам',
+    workHeading: 'Избранные кейсы', projectsWord: 'проекта',
+    roleLabel: 'Роль', contribLabel: 'Вклад', timelineLabel: 'Сроки', previewCta: 'Открыть кейс',
+    footPortfolio: 'Портфолио', footElsewhere: 'Контакты',
+    'p-atelic-kind': 'B2B · Фриланс', 'p-atelic-role': 'UX-исследователь · Продуктовый дизайнер',
+    'p-atelic-contrib': 'Исследования · UI · ИА · Проектирование флоу', 'p-atelic-timeline': 'Авг 2025 – Ноя 2025',
+    'p-atelic-desc': 'Спокойный сбор анамнеза до приёма: история пациента собирается заранее, и врач приходит уже подготовленным.',
+    'p-merck-kind': 'Кейс · B2C', 'p-merck-role': 'Проджект-менеджер · UX-исследователь · Продуктовый дизайнер',
+    'p-merck-contrib': 'Исследования · UI-дизайн · прототип', 'p-merck-timeline': 'Апр 2025 – Июл 2025',
+    'p-merck-desc': 'Помощник для онкологов в работе — клинические инструменты, база знаний и место для эмоциональной разгрузки.'
+  }
+};
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

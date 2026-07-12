@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life — Sasha Su</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items: start; }
+.about-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px; border-top: 1px solid rgba(26,24,21,0.14); padding-top: 28px; }
+.portrait { aspect-ratio: 3/4; border-radius: 4px; background: #1A1815; position: relative; overflow: hidden; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 32%; display: block; }
+.channel-row {
+  display: grid; grid-template-columns: 44px minmax(0,1.1fr) minmax(0,1.4fr) auto; gap: 24px; align-items: center;
+  padding: 22px 8px; border-bottom: 1px solid rgba(26,24,21,0.12);
+}
+.channel-row:hover { background: #EBE7DE; opacity: 1; }
+.channel-idx { font-family: 'Space Mono', monospace; font-size: 12px; color: rgba(26,24,21,0.4); }
+.channel-name { font-size: clamp(19px,2vw,26px); font-weight: 600; color: #1A1815; letter-spacing: -0.01em; }
+.channel-note { font-size: 15px; color: rgba(26,24,21,0.6); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.channel-meta { display: flex; align-items: center; gap: 14px; justify-content: flex-end; }
+.channel-handle { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: rgba(26,24,21,0.55); }
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: 0; }
+  .about-facts { grid-template-columns: 1fr 1fr; gap: 22px 16px; padding-top: 22px; }
+  .portrait { aspect-ratio: 4/3; margin-bottom: 28px; }
+  .channel-row { grid-template-columns: none; display: flex; flex-direction: column; gap: 6px; padding: 18px 4px; }
+  .channel-row .channel-meta { justify-content: flex-start; order: -1; }
+  .channel-row .channel-meta .channel-arrow { margin-left: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="lang-pill">
+  <button class="js-lang-btn" data-lang="en">EN</button>
+  <button class="js-lang-btn" data-lang="ru">RU</button>
+</div>
+
+<header class="site-nav">
+  <nav class="nav-row">
+    <a href="index.html" class="logo">Sasha Su</a>
+    <div class="nav-desktop">
+      <a href="index.html#work" class="nav-link" data-i18n="navWork">Work</a>
+      <a href="life.html" class="nav-link is-current" data-i18n="navLife">Life</a>
+    </div>
+    <a href="assets/CV-EN.pdf" data-cv-link data-href-en="assets/CV-EN.pdf" data-href-ru="assets/CV-RU.pdf" download class="nav-cv" data-i18n="navCV">Download CV</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile-panel">
+    <a href="index.html#work" class="nav-link" data-i18n="navWork">Work</a>
+    <a href="life.html" class="nav-link is-current" data-i18n="navLife">Life</a>
+    <a href="assets/CV-EN.pdf" data-cv-link data-href-en="assets/CV-EN.pdf" data-href-ru="assets/CV-RU.pdf" download class="nav-cv" data-i18n="navCV">Download CV</a>
+    <div class="nav-mobile-lang">
+      <button class="js-lang-btn" data-lang="en">EN</button>
+      <button class="js-lang-btn" data-lang="ru">RU</button>
+    </div>
+  </div>
+</header>
+
+<section class="container" style="padding:48px 40px 88px;">
+  <div class="about-grid">
+    <div class="portrait"><img src="assets/Background.png" alt="Portrait of Sasha Su"></div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:28px;" data-i18n="aboutLabel">About</div>
+      <p class="serif" style="font-weight:400;font-size:clamp(24px,2.8vw,38px);line-height:1.22;letter-spacing:-0.005em;margin-bottom:32px;text-wrap:pretty;" data-i18n="aboutBody">My background is in helping people, which is why I chose healthcare as my primary focus area. I design with respect for its responsibility, and for the work of the people within it.</p>
+      <div class="about-facts">
+        <div>
+          <div class="label-sm" style="margin-bottom:8px;" data-i18n="eduLabel">Education</div>
+          <div style="font-size:16px;line-height:1.5;" data-i18n="eduVal">Product Design, BHSAD<br><span style="color:rgba(26,24,21,0.6);">British Higher School of Art &amp; Design, 2025</span></div>
+        </div>
+        <div>
+          <div class="label-sm" style="margin-bottom:8px;" data-i18n="langLabel">Languages</div>
+          <div style="font-size:16px;line-height:1.5;" data-i18n="langVal">Russian — native<br>English — fluent<br>Korean — can speak</div>
+        </div>
+        <div>
+          <div class="label-sm" style="margin-bottom:8px;" data-i18n="locLabel">Location</div>
+          <div style="font-size:16px;line-height:1.5;" data-i18n="locVal">Moscow, Russia</div>
+        </div>
+        <div>
+          <div class="label-sm" style="margin-bottom:8px;" data-i18n="bgLabel">Background</div>
+          <div style="font-size:16px;line-height:1.5;" data-i18n="bgVal">~10 years in certification</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid rgba(26,24,21,0.16);">
+  <div class="container" style="padding:64px 40px 96px;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:40px;">
+      <h2 class="serif" style="font-weight:400;font-size:clamp(28px,3.4vw,44px);letter-spacing:-0.01em;" data-i18n="channelsTitle">Channels</h2>
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(26,24,21,0.5);" data-i18n="channelsSub">Find me elsewhere</span>
+    </div>
+    <div style="border-top:1px solid rgba(26,24,21,0.16);">
+      <a href="https://www.instagram.com/be_anicehuman?igsh=MXY3ZTN5cXB0NGo4dQ%3D%3D&utm_source=qr" target="_blank" class="channel-row">
+        <span class="channel-idx">01</span>
+        <span class="channel-name">Instagram</span>
+        <span class="channel-note" data-i18n="chIgNote">Everyday life and dance</span>
+        <span class="channel-meta"><span class="channel-handle">@be_anicehuman</span><span class="channel-arrow" style="font-family:'Space Mono',monospace;font-size:16px;color:#1A1815;">↗</span></span>
+      </a>
+      <a href="https://t.me/be_anicehuman" target="_blank" class="channel-row">
+        <span class="channel-idx">02</span>
+        <span class="channel-name">Telegram</span>
+        <span class="channel-note" data-i18n="chTgNote">The fastest way to reach me</span>
+        <span class="channel-meta"><span class="channel-handle">@be_anicehuman</span><span class="channel-arrow" style="font-family:'Space Mono',monospace;font-size:16px;color:#1A1815;">↗</span></span>
+      </a>
+      <a href="https://www.linkedin.com/in/beanicehuman" target="_blank" class="channel-row">
+        <span class="channel-idx">03</span>
+        <span class="channel-name">LinkedIn</span>
+        <span class="channel-note" data-i18n="chLiNote">Work history and background</span>
+        <span class="channel-meta"><span class="channel-handle">Sasha Surinova</span><span class="channel-arrow" style="font-family:'Space Mono',monospace;font-size:16px;color:#1A1815;">↗</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div class="footer-col">
+      <div class="label-sm" data-i18n="footPortfolio">Portfolio by</div>
+      <a href="index.html" style="color:#1A1815;">Sasha Su · Product Designer</a>
+    </div>
+    <div class="footer-col" style="flex:1 1 220px;">
+      <div class="label-sm" data-i18n="footContact">Contact</div>
+      <div class="footer-links">
+        <a href="https://t.me/be_anicehuman" target="_blank">Telegram</a>
+        <a href="https://www.linkedin.com/in/beanicehuman" target="_blank">LinkedIn</a>
+        <a href="mailto:ademykina@gmail.com">ademykina@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-year">© <span id="year"></span></div>
+  </div>
+</footer>
+
+<script>
+window.I18N = {
+  en: {
+    navWork: 'Work', navLife: 'Life', navCV: 'Download CV',
+    aboutLabel: 'About',
+    aboutBody: 'My background is in helping people, which is why I chose healthcare as my primary focus area. I design with respect for its responsibility, and for the work of the people within it.',
+    eduLabel: 'Education', eduVal: 'Product Design, BHSAD<br><span style="color:rgba(26,24,21,0.6);">British Higher School of Art &amp; Design, 2025</span>',
+    langLabel: 'Languages', langVal: 'Russian — native<br>English — fluent<br>Korean — can speak',
+    locLabel: 'Location', locVal: 'Moscow, Russia',
+    bgLabel: 'Background', bgVal: '~10 years in certification',
+    channelsTitle: 'Channels', channelsSub: 'Find me elsewhere',
+    chIgNote: 'Everyday life and dance', chTgNote: 'The fastest way to reach me', chLiNote: 'Work history and background',
+    footPortfolio: 'Portfolio by', footContact: 'Contact'
+  },
+  ru: {
+    navWork: 'Проекты', navLife: 'Жизнь', navCV: 'Скачать резюме',
+    aboutLabel: 'Обо мне',
+    aboutBody: 'Мой бэкграунд связан с помощью людям, поэтому я выбрала здравоохранение как основную сферу. Проектирую с уважением к её ответственности и к труду людей, которые в ней работают.',
+    eduLabel: 'Образование', eduVal: 'Продуктовый дизайн, БВШД<br><span style="color:rgba(26,24,21,0.6);">Британская высшая школа дизайна, 2025</span>',
+    langLabel: 'Языки', langVal: 'Русский — родной<br>Английский — свободно<br>Корейский — продвинутый',
+    locLabel: 'Локация', locVal: 'Москва, Россия',
+    bgLabel: 'Бэкграунд', bgVal: '~10 лет в сфере сертификации',
+    channelsTitle: 'Каналы', channelsSub: 'Ещё меня можно найти здесь',
+    chIgNote: 'Жизнь и путешествия', chTgNote: 'Самый быстрый способ связаться', chLiNote: 'Опыт работы и бэкграунд',
+    footPortfolio: 'Портфолио', footContact: 'Контакты'
+  }
+};
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Маркетинговая воронка Merck</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-size: 13px;
+    min-height: 100vh;
+  }
+
+  .wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  .header {
+    margin-bottom: 32px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+
+  .header p {
+    font-size: 13px;
+    color: #888;
+  }
+
+  /* NAV */
+  .funnel-nav {
+    display: flex;
+    border-bottom: 1px solid #e5e5e5;
+    overflow-x: auto;
+    background: #f8f8f8;
+    border-radius: 8px 8px 0 0;
+    scrollbar-width: none;
+  }
+  .funnel-nav::-webkit-scrollbar { display: none; }
+
+  .funnel-tab {
+    padding: 11px 18px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    font-size: 12px;
+    font-weight: 500;
+    color: #777;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  .funnel-tab:hover { color: #1a1a1a; background: #f0f0f0; }
+  .funnel-tab.active { color: #1a1a1a; border-bottom-color: #1a1a1a; font-weight: 700; background: #fff; }
+
+  .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 7px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  /* STAGE */
+  .stage-content {
+    display: none;
+    padding: 24px 0 0;
+    animation: fadeIn 0.2s ease;
+  }
+  .stage-content.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .stage-header {
+    margin-bottom: 20px;
+  }
+  .stage-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: -0.2px;
+  }
+  .stage-goal {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  /* GRID */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+
+  /* CARD */
+  .card {
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #e8e8e8;
+    background: #fafafa;
+  }
+  .card.tools   { background: #f5fbf6; border-color: #c8e6cc; }
+  .card.content { background: #fffdf0; border-color: #e8e0b0; }
+  .card.metrics { background: #f2f6ff; border-color: #c0d4f0; }
+  .card.barriers { background: #fff5f3; border-color: #f0cfc8; }
+
+  .card-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+    color: #aaa;
+  }
+  .card.tools .card-title   { color: #5a9e65; }
+  .card.content .card-title { color: #9e8a30; }
+  .card.metrics .card-title { color: #3a6dbf; }
+  .card.barriers .card-title { color: #bf4a3a; }
+
+  /* TAGS */
+  .tag {
+    display: inline-block;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 4px 9px;
+    margin: 3px 2px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #333;
+  }
+  .card.barriers .tag {
+    background: #fff0ed;
+    border-color: #f5c0b8;
+    color: #b03020;
+  }
+  .card.metrics .tag {
+    background: #eaf0ff;
+    border-color: #b8ccf0;
+    color: #2a50a0;
+  }
+
+  /* QUOTES */
+  .quote {
+    font-style: italic;
+    color: #888;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 8px;
+    padding: 8px 10px;
+    border-left: 2px solid #f0b8b0;
+    background: #fff8f6;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 11px;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <h1>Маркетинговая воронка Merck</h1>
+    <p>Фарм → Онкологи &nbsp;·&nbsp; Инструменты, контент, метрики и барьеры по каждому этапу</p>
+  </div>
+
+  <nav class="funnel-nav">
+    <div class="funnel-tab active"  onclick="showStage(0)"><span class="dot" style="background:#6c8ebf"></span>Осведомлённость</div>
+    <div class="funnel-tab"         onclick="showStage(1)"><span class="dot" style="background:#82b366"></span>Интерес</div>
+    <div class="funnel-tab"         onclick="showStage(2)"><span class="dot" style="background:#d6a000"></span>Рассмотрение</div>
+    <div class="funnel-tab"         onclick="showStage(3)"><span class="dot" style="background:#d67a00"></span>Оценка</div>
+    <div class="funnel-tab"         onclick="showStage(4)"><span class="dot" style="background:#b85450"></span>Лояльность</div>
+  </nav>
+
+  <!-- ─── STAGE 1 ─── -->
+  <div class="stage-content active" id="stage-0">
+    <div class="stage-header">
+      <div class="stage-title">Привлечение внимания / Осведомлённость</div>
+      <div class="stage-goal">Цель: донести до врачей информацию о препарате, бренде и проблематике</div>
+    </div>
+    <div class="grid-2">
+      <div class="card tools">
+        <div class="card-title">Инструменты</div>
+        <span class="tag">Полевые представители</span>
+        <span class="tag">Личные встречи (60% контактов)</span>
+        <span class="tag">Email-рассылки</span>
+        <span class="tag">Цифровая реклама</span>
+        <span class="tag">Сайт (первоисточники исследований)</span>
+      </div>
+      <div class="card content">
+        <div class="card-title">Контент / Форматы</div>
+        <span class="tag">Видео от экспертов (KOL)</span>
+        <span class="tag">Анонсы исследований (без брендирования)</span>
+        <span class="tag">Калькуляторы (СКФ)</span>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card metrics">
+        <div class="card-title">Метрики</div>
+        <span class="tag">Охват врачей полевыми представителями</span>
+        <span class="tag">Open rate email — текущий 3–4%, цель 10%</span>
+        <span class="tag">Показы и клики по цифровой рекламе</span>
+        <span class="tag">Посещения сайта</span>
+      </div>
+      <div class="card barriers">
+        <div class="card-title">Барьеры</div>
+        <span class="tag">Перегруженность врачей</span>
+        <span class="tag">Привычка не читать email</span>
+        <span class="tag">YouTube заблокирован</span>
+        <span class="tag">ФЗ-38</span>
+        <span class="tag">Vimeo — авторизация снизила просмотры на 95%</span>
+        <span class="tag">Клик-рейт исторически 3–4%, редко >10%</span>
+        <div class="quote">«Основную информацию врачи получают из самой рассылки — перехода по ссылкам нет»</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STAGE 2 ─── -->
+  <div class="stage-content" id="stage-1">
+    <div class="stage-header">
+      <div class="stage-title">Интерес</div>
+      <div class="stage-goal">Цель: вызвать желание узнать больше о продукте и компании</div>
+    </div>
+    <div class="grid-2">
+      <div class="card tools">
+        <div class="card-title">Инструменты</div>
+        <span class="tag">Офлайн-мероприятия</span>
+        <span class="tag">Промо- и обучающий контент</span>
+        <span class="tag">Вебинары с лидерами мнений</span>
+        <span class="tag">Email + реклама на закрытых платформах</span>
+        <span class="tag">Telegram-каналы / ВКонтакте для врачей</span>
+      </div>
+      <div class="card content">
+        <div class="card-title">Контент / Форматы</div>
+        <span class="tag">Рассылки с кейсами и ключевыми исследованиями</span>
+        <span class="tag">Инфографика по исследованиям</span>
+        <span class="tag">Короткие видео</span>
+        <span class="tag">Фрагменты кейсов (тизеры)</span>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card metrics">
+        <div class="card-title">Метрики</div>
+        <span class="tag">Переходы на портал</span>
+        <span class="tag">Глубина просмотра</span>
+        <span class="tag">Регистрации на вебинары</span>
+        <span class="tag">Вовлечённость на вебинарах</span>
+      </div>
+      <div class="card barriers">
+        <div class="card-title">Барьеры</div>
+        <span class="tag">Нет личных кабинетов</span>
+        <span class="tag">Сложности с авторизацией</span>
+        <span class="tag">Рекламные ограничения</span>
+        <div class="quote">«Работать с игровыми механиками из 3–10 элементов — просто не окупится»</div>
+        <div class="quote">«Без сохранения опросов + открытые ПДн — это не работает»</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STAGE 3 ─── -->
+  <div class="stage-content" id="stage-2">
+    <div class="stage-header">
+      <div class="stage-title">Рассмотрение</div>
+      <div class="stage-goal">Цель: помочь врачу осознанно рассмотреть Merck как надёжного партнёра и поставщика решений</div>
+    </div>
+    <div class="grid-2">
+      <div class="card tools">
+        <div class="card-title">Инструменты</div>
+        <span class="tag">Экскурсия по платформе</span>
+        <span class="tag">Видео-тур / чат-бот после верификации</span>
+        <span class="tag">Вебинары для верифицированных врачей</span>
+        <span class="tag">Демо интерактивных симуляций</span>
+        <span class="tag">CRM история коммуникаций</span>
+      </div>
+      <div class="card content">
+        <div class="card-title">Контент / Форматы</div>
+        <span class="tag">Инфографика-сравнения</span>
+        <span class="tag">Чат-бот с ИИ</span>
+        <span class="tag">Демо интерактивных кейсов</span>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card metrics">
+        <div class="card-title">Метрики</div>
+        <span class="tag">Вовлечённость в демо-контент</span>
+        <span class="tag">Время на сайте</span>
+        <span class="tag">Кол-во заявок на вебинар</span>
+      </div>
+      <div class="card barriers">
+        <div class="card-title">Барьеры</div>
+        <span class="tag">Недоверие к контенту фармкомпаний</span>
+        <span class="tag">Отсутствие актуального контента</span>
+        <div class="quote">«Врачи понимают, что мы публикуем контент для себя, а не для них»</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STAGE 4 ─── -->
+  <div class="stage-content" id="stage-3">
+    <div class="stage-header">
+      <div class="stage-title">Оценка</div>
+      <div class="stage-goal">Цель: врач сопоставляет Merck с альтернативами, анализирует ценность и готовность применять</div>
+    </div>
+    <div class="grid-2">
+      <div class="card tools">
+        <div class="card-title">Инструменты</div>
+        <span class="tag">Простая регистрация (минимум данных)</span>
+        <span class="tag">Персонализация через CRM</span>
+        <span class="tag">KAM-ы проверяют регистрацию и обсуждают платформу</span>
+      </div>
+      <div class="card content">
+        <div class="card-title">Контент / Форматы</div>
+        <span class="tag">Серия видео-кейсов с мнениями</span>
+        <span class="tag">Полные интерактивные кейсы</span>
+        <span class="tag">Калькуляторы планирования лечения</span>
+        <span class="tag">Персонализированные email с рекомендациями</span>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card metrics">
+        <div class="card-title">Метрики</div>
+        <span class="tag">Время на платформе после регистрации</span>
+        <span class="tag">Запросы через KAMs</span>
+        <span class="tag">Кол-во просмотренных кейсов</span>
+        <span class="tag">Вовлечённость в калькуляторы и симуляции кейсов</span>
+      </div>
+      <div class="card barriers">
+        <div class="card-title">Барьеры</div>
+        <span class="tag">Юридические ограничения (ФЗ)</span>
+        <span class="tag">Неполное покрытие полевой командой</span>
+        <div class="quote">«Все истории, где доктор что-то говорит открытым текстом — за это должен кто-то отвечать юридически»</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STAGE 5 ─── -->
+  <div class="stage-content" id="stage-4">
+    <div class="stage-header">
+      <div class="stage-title">Назначение препарата / Лояльность</div>
+      <div class="stage-goal">Цель: врач назначает препарат Merck, возвращается за поддержкой</div>
+    </div>
+    <div class="grid-2">
+      <div class="card tools">
+        <div class="card-title">Инструменты</div>
+        <span class="tag">Регулярные обновления контента (ежемесячно)</span>
+        <span class="tag">KPI представителей на регистрации</span>
+        <span class="tag">Геймификация — значки и триггеры прогресса</span>
+        <span class="tag">Уведомления через Telegram</span>
+        <span class="tag">Поддержка полевых представителей</span>
+      </div>
+      <div class="card content">
+        <div class="card-title">Контент / Форматы</div>
+        <span class="tag">Интерактивные клинические алгоритмы</span>
+        <span class="tag">Калькуляторы, встроенные в кейсы</span>
+        <span class="tag">Углублённые кейсы</span>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card metrics">
+        <div class="card-title">Метрики</div>
+        <span class="tag">Посещаемость платформы</span>
+        <span class="tag">% завершённых геймифицированных задач</span>
+        <span class="tag">Ежемесячные активные пользователи</span>
+        <span class="tag">Вовлечённость в Telegram-уведомления</span>
+      </div>
+      <div class="card barriers">
+        <div class="card-title">Барьеры</div>
+        <span class="tag">Нет NPS по врачам</span>
+        <span class="tag">CRM-данные не всегда достоверны</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Merck · Маркетинговая воронка · Онкологи</div>
+
+</div>
+
+<script>
+  function showStage(idx) {
+    document.querySelectorAll('.stage-content').forEach((el, i) => {
+      el.classList.toggle('active', i === idx);
+    });
+    document.querySelectorAll('.funnel-tab').forEach((el, i) => {
+      el.classList.toggle('active', i === idx);
+    });
+  }
+</script>
+</body>
+</html>
