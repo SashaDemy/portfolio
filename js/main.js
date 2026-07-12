@@ -133,13 +133,19 @@
       var slides = track ? Array.prototype.slice.call(track.children) : [];
       var dots = Array.prototype.slice.call(root.querySelectorAll('[data-carousel-dot]'));
       var caption = root.querySelector('[data-carousel-caption]');
+      var captionKeys = [];
+      try { captionKeys = JSON.parse(root.getAttribute('data-caption-keys') || '[]'); } catch (e) {}
       var captions = [];
       try { captions = JSON.parse(root.getAttribute('data-captions') || '[]'); } catch (e) {}
       var i = 0;
       function render() {
         track.style.transform = 'translateX(-' + (i * 100) + '%)';
         dots.forEach(function (d, di) { d.classList.toggle('is-active', di === i); });
-        if (caption && captions[i] !== undefined) caption.textContent = captions[i];
+        if (!caption) return;
+        var key = captionKeys[i];
+        var dict = (window.I18N && window.I18N[getLang()]) || {};
+        if (key !== undefined && Object.prototype.hasOwnProperty.call(dict, key)) caption.textContent = dict[key];
+        else if (captions[i] !== undefined) caption.textContent = captions[i];
       }
       root.querySelectorAll('[data-carousel-prev]').forEach(function (b) {
         b.addEventListener('click', function () { i = (i - 1 + slides.length) % slides.length; render(); });
@@ -148,6 +154,11 @@
         b.addEventListener('click', function () { i = (i + 1) % slides.length; render(); });
       });
       dots.forEach(function (d, di) { d.addEventListener('click', function () { i = di; render(); }); });
+      if (captionKeys.length) {
+        window.onLangApplied = (function (prev) {
+          return function (lang) { if (prev) prev(lang); render(); };
+        })(window.onLangApplied);
+      }
       render();
     });
   }
