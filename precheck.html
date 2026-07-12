@@ -32,6 +32,11 @@
 .anketa-wrap { margin-top: 26px; position: relative; max-width: 329px; margin-left: auto; margin-right: auto; }
 .anketa-frame { aspect-ratio: 394/854; }
 .postvisit-carousel { display: none; }
+.home-shot { position: relative; border-radius: 6px; overflow: hidden; border: 1px solid rgba(26,24,21,0.14); background: #fff; cursor: zoom-in; max-height: 20vh; transition: max-height 0.4s ease; }
+.home-shot.is-open { max-height: 4000px; cursor: zoom-out; }
+.home-shot-fade { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: flex-end; justify-content: center; padding: 20px; pointer-events: none; height: 120px; background: linear-gradient(to top,rgba(255,253,247,0.96),rgba(255,253,247,0)); transition: opacity 0.4s ease; }
+.home-shot.is-open .home-shot-fade { opacity: 0; }
+.home-shot-fade span { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1A1815; background: #fff; border: 1px solid rgba(26,24,21,0.16); border-radius: 999px; padding: 9px 18px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
 @media (max-width: 860px) {
   .hero-h1 { font-size: 34px; margin-bottom: 18px; }
   .tldr-lead { font-size: 24px; }
@@ -242,9 +247,9 @@
         </div>
       </div>
       <div style="margin-top:26px;">
-        <a href="#post-visit-ai" style="display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(26,24,21,0.5);" data-i18n="s05bSkip">Skip the report ↓</a>
-        <div style="border-radius:6px;border:1px solid rgba(26,24,21,0.14);overflow:hidden;">
+        <div class="home-shot" data-expand-image>
           <img src="assets/precheck-report-full.png" alt="Sample Precheck report for a doctor" style="display:block;width:100%;height:auto;">
+          <div class="home-shot-fade"><span data-expand-hint>Tap to expand</span></div>
         </div>
       </div>
     </div>
